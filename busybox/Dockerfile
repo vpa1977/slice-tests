@@ -44,4 +44,5 @@ USER $UID:$GID
 COPY --from=sliced-deps /rootfs /
 # Workaround for https://github.com/moby/moby/issues/38710
 COPY --from=sliced-deps --chown=$UID:$GID /rootfs/home/$USER /home/$USER
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/busybox"]
+CMD ["sh"]
